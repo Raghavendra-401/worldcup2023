@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started
 
 Welcome to your new project.
@@ -23,3 +24,7 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+=======
+# worldcup2023
+ICC world cup 2023 table
+>>>>>>> f2ba12f8d40fd78dcf7905b153a5aa8faae129bc
