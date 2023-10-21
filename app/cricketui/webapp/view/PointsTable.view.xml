@@ -1,0 +1,64 @@
+<mvc:View controllerName="wc.india.cricketui.controller.PointsTable"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="TeamsData" persistencyKey="SmartFilter_Explored" />
+            <smartTable:SmartTable id="LineItemsSmartTable" entitySet="TeamsData" smartFilterId="smartFilterBar" tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Points Table" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" /> -->
+            <Table id="_IDPointsTable" items="{path:'/TeamsData',
+                                       sorter:{ path:'Points' ,descending :true}}" headerText="{i18n>pointsTable}">
+                <columns>
+                    <Column width="12em">
+                        <header>
+                            <Text text="{i18n>Team}" />
+                        </header>
+                    </Column>
+                    <Column width="10em" minScreenWidth="phone" demandPopin="false">
+                        <header>
+                            <Text text="{i18n>MatchesPlayed}" />
+                        </header>
+                    </Column>
+                    <Column width="10em" demandPopin="false" >
+                        <header>
+                            <Text text="{i18n>Won}" />
+                        </header>
+                    </Column>
+                    <Column width="10em" minScreenWidth="Tablet" demandPopin="true" >
+                        <header>
+                            <Text text="{i18n>Lost}" />
+                        </header>
+                    </Column>
+                    <Column width="10em" minScreenWidth="Tablet" demandPopin="false" >
+                        <header>
+                            <Text text="{i18n>NoResult}" />
+                        </header>
+                    </Column>
+                    <Column width="5em" minScreenWidth="Tablet" demandPopin="true" >
+                        <header>
+                            <Text text="{i18n>Points}" />
+                        </header>
+                    </Column>
+                    <Column width="5em"></Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier title="{Name}" />
+                            <Text text="{MatchesPlayed}" />
+                            <Text text="{MatchesWon}" />
+                            <Text text="{MatchesLost}" />
+                            <Text text="{MatchesTied}" />
+                            <ObjectIdentifier title="{Points}" />
+                            <Button icon="sap-icon://dropdown" type="Transparent" press="onNavToResultPage"></Button>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <!-- <Title text="Team Results"/>
+            <core:Fragment fragmentName="wc.india.cricketui.view.Results"/> -->
+        </content>
+    </Page>
+</mvc:View>

@@ -1,40 +1,128 @@
-_schema-version: '3.1'
+_schema-version: "3.1"
 ID: worldcup2k23
+description: A simple CAP project.
 version: 1.0.0
-description: "A simple CAP project."
+modules:
+- name: worldcup2k23-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: worldcup2k23-db
+  - name: uaa_worldcup2k23
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm
+- name: worldcup2k23-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: worldcup2k23-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: worldcup2k23-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: worldcup2k23-destination-service
+    parameters:
+      content-target: true
+  - name: worldcup2k23_html_repo_host
+    parameters:
+      service-key:
+        name: worldcup2k23_html_repo_host-key
+  - name: uaa_worldcup2k23
+    parameters:
+      service-key:
+        name: uaa_worldcup2k23-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: worldcup_2k23_approuter_worldcup2k23_html_repo_host
+          ServiceInstanceName: worldcup2k23-html5-app-host-service
+          ServiceKeyName: worldcup2k23_html_repo_host-key
+          sap.cloud.service: worldcup_2k23_approuter
+        - Authentication: OAuth2UserTokenExchange
+          Name: worldcup_2k23_approuter_uaa_worldcup2k23
+          ServiceInstanceName: worldcup2k23-xsuaa-service
+          ServiceKeyName: uaa_worldcup2k23-key
+          sap.cloud.service: worldcup_2k23_approuter
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: worldcup2k23-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: worldcup2k23_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - wcindiacricketui.zip
+      name: wcindiacricketui
+      target-path: resources/
+- name: wcindiacricketui
+  type: html5
+  path: app/cricketui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: worldcup2k23-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+- name: worldcup2k23-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: worldcup2k23-destination-service
+    service-plan: lite
+- name: worldcup2k23_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: worldcup2k23-html5-app-host-service
+    service-plan: app-host
+- name: uaa_worldcup2k23
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: worldcup2k23-${org}-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: worldcup2k23-xsuaa-service
+    service-plan: application
 parameters:
+  deploy_mode: html5-repo
   enable-parallel-deployments: true
 build-parameters:
   before-all:
-    - builder: custom
-      commands:
-        - npx cds build --production
-modules:
-  - name: worldcup2k23-srv
-    type: nodejs
-    path: gen/srv
-    parameters:
-      buildpack: nodejs_buildpack
-    build-parameters:
-      builder: npm
-    provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
-        properties:
-          srv-url: ${default-url}
-    requires:
-      - name: worldcup2k23-db
-
-  - name: worldcup2k23-db-deployer
-    type: hdb
-    path: gen/db
-    parameters:
-      buildpack: nodejs_buildpack
-    requires:
-      - name: worldcup2k23-db
-
-resources:
-  - name: worldcup2k23-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
+  - builder: custom
+    commands:
+    - npx cds build --production

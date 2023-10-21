@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="WorldCupService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="TeamsData" EntityType="WorldCupService.TeamsData">
+                    <NavigationPropertyBinding Path="Results" Target="TeamResults"/>
+                </EntitySet>
+                <EntitySet Name="TeamResults" EntityType="WorldCupService.TeamResults">
+                    <NavigationPropertyBinding Path="Team" Target="TeamsData"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="TeamsData">
+                <Key>
+                    <PropertyRef Name="Name"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="20" Nullable="false"/>
+                <Property Name="MatchesPlayed" Type="Edm.Int32"/>
+                <Property Name="MatchesWon" Type="Edm.Int32"/>
+                <Property Name="MatchesLost" Type="Edm.Int32"/>
+                <Property Name="MatchesTied" Type="Edm.Int32"/>
+                <Property Name="Points" Type="Edm.Int32"/>
+                <NavigationProperty Name="Results" Type="Collection(WorldCupService.TeamResults)" Partner="Team">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="TeamResults">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="Team_Name"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="Team" Type="WorldCupService.TeamsData" Partner="Results">
+                    <ReferentialConstraint Property="Team_Name" ReferencedProperty="Name"/>
+                </NavigationProperty>
+                <Property Name="Team_Name" Type="Edm.String" MaxLength="20" Nullable="false"/>
+                <Property Name="Opponent" Type="Edm.String" MaxLength="20"/>
+                <Property Name="MatchDate" Type="Edm.Date"/>
+                <Property Name="Result" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="WorldCupService.TeamsData/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+                </Annotations>
+                <Annotations Target="WorldCupService.TeamsData/createdBy">
+                    <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                    <Annotation Term="Core.Immutable" Bool="true"/>
+                    <Annotation Term="Core.Computed" Bool="true"/>
+                    <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+                        </Annotations>
+                        <Annotations Target="WorldCupService.TeamsData/modifiedAt">
+                            <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                            <Annotation Term="Core.Computed" Bool="true"/>
+                            <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+                            </Annotations>
+                            <Annotations Target="WorldCupService.TeamsData/modifiedBy">
+                                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                                <Annotation Term="Core.Computed" Bool="true"/>
+                                <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+                                    <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+                                    </Annotations>
+                                </Schema>
+                            </edmx:DataServices>
+                        </edmx:Edmx>
