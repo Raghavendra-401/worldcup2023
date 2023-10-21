@@ -1,9 +1,7 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core"
     xmlns="sap.m">
-    <TableSelectDialog id="_IDResultTable" items="{path :'oResultModel>/results',
-    sorter:{
-        path : 'oResultModel>MatchDate'
-    }}" title="{oResultModel>/results/0/Team_Name} {i18n>Results}" contentHeight="42%" contentWidth="50%" titleAlignment="Center" search=".onSearchResults" searchPlaceholder="{i18n>searchPlaceHolder}">
+    <TableSelectDialog id="_IDResultTable" items="{oResultModel>/results}" title="{oResultModel>/results/0/Team_Name} {i18n>Results}" contentHeight="25%" contentWidth="45%" 
+                       titleAlignment="Center" search=".onSearchResults" searchPlaceholder="{i18n>searchPlaceHolder}">
         <columns>
             <Column >
                 <Text text="{i18n>Opponent}"></Text>

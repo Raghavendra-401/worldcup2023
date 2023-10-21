@@ -1,0 +1,18 @@
+{
+  "view/PointsTable.view.xml": 1697891068844,
+  "controller/App.controller.js": 1697873744657,
+  "model/models.js": 1697873744653,
+  "controller/PointsTable.controller.js": 1697890491479,
+  "manifest.json": 1697900878991,
+  "Component.js": 1697873744645,
+  "Component-preload.js": 1697900879246,
+  "Component-dbg.js": 1697873744645,
+  "controller/App-dbg.controller.js": 1697873744657,
+  "model/models-dbg.js": 1697873744653,
+  "controller/PointsTable-dbg.controller.js": 1697890491479,
+  "view/Results.fragment.xml": 1697890853899,
+  "i18n/i18n.properties": 1697891075720,
+  "view/App.view.xml": 1697873744661,
+  "css/style.css": 1697873744661,
+  "index.html": 1697873744649
+}
