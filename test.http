@@ -1,0 +1,61 @@
+###GET REQUEST - TEAMSDATA
+GET http://localhost:4004/odata/v2/world-cup/TeamsData
+
+###POST - TEAMSDATA
+POST http://localhost:4004/odata/v2/world-cup/TeamsData
+Content-Type: application/json
+
+{
+    "Name" : "West Indies",
+    "MatchesPlayed": 4,
+    "MatchesWon": 1,
+    "MatchesLost": 3,
+    "MatchesTied": 0,
+    "Points": 2
+}
+
+###DELETE - TEAMSDATA
+DELETE http://localhost:4004/odata/v2/world-cup/TeamsData('West Indies')
+
+###UPDATE - TEAMSDATA
+PUT http://localhost:4004/odata/v2/world-cup/TeamsData('India')
+Content-Type: application/json
+
+{
+    "MatchesPlayed": 4,
+    "MatchesWon": 4,
+    "MatchesLost": 0,
+    "MatchesTied": 0,
+    "Points": 8
+}
+
+###GET - TEAMRESULTS
+GET http://localhost:4004/odata/v2/world-cup/TeamResults
+
+###POST - TEAMRESULTS
+POST http://localhost:4004/odata/v2/world-cup/TeamResults
+Content-Type: application/json
+
+{
+    "ID":"7a824781-6c07-44f0-aa70-c8c7b71c9582",
+    "Team_Name": "Sri Lanka",
+    "Opponent": "Netherlands",
+    "MatchDate": "2023-10-21",
+    "Result": "Won by 5 wkts"
+}
+
+###DELETE - TEAMRESULTS
+DELETE http://localhost:4004/odata/v2/world-cup/TeamResults(ID=guid'7a824781-6c07-44f0-aa70-c8c7b71c9582',Team_Name='Sri Lanka')
+
+###UPDATE - TEAMRESULTS
+PUT http://localhost:4004/odata/v2/world-cup/TeamResults(ID=guid'f3fabd1a-cc00-4129-b1b9-1f0d9724eea9',Team_Name='Sri Lanka')
+Content-Type: application/json
+
+{
+    "Opponent":"Netherlands",
+    "MatchDate": "2023-10-21",
+    "Result": "Won by 4 wkts"
+}
+
+#### EXPAND of TEAMSDATA for RESULTS
+GET http://localhost:4004/odata/v4/world-cup/TeamsData?$expand=Results
