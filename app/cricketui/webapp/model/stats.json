@@ -1,0 +1,34 @@
+{
+    "battingStatsHeaderData": [
+        {
+            "Header": "Most Runs",
+            "Name": "Virat Kohli"
+        },
+        {
+            "Header": "Highest Scores",
+            "Name": "Virat Kohli"
+        },
+        {
+            "Header": "Most Hundreds",
+            "Name": "Virat Kohli"
+        },
+        {
+            "Header": "Most Fifties",
+            "Name": "Virat Kohli"
+        }
+    ],
+    "bowlingStatsHeaderData": [
+        {
+            "Header": "Most Wickets",
+            "Name": "Bumrah"
+        },
+        {
+            "Header": "Best Bowling",
+            "Name": "Bumrah"
+        },
+        {
+            "Header": "Best Economy",
+            "Name": "Bumrah"
+        }
+    ]
+}

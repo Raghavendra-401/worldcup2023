@@ -12,6 +12,8 @@
         "@sap/hana-client": "^2.18.24",
         "@sap/xssec": "^3",
         "express": "^4",
+        "node": "^20.5.0",
+        "npm": "^10.2.1",
         "passport": "^0"
     },
     "devDependencies": {

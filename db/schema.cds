@@ -17,9 +17,24 @@ entity teamsdata : managed {
                             on Results.Team = $self;
 }
 
-entity teamresults: cuid {
+entity teamresults : cuid {
     key Team      : Association to one teamsdata;
         Opponent  : String(20);
         MatchDate : Date;
         Result    : String;
+}
+
+entity battingstats {
+    key Player         : String;
+        Runs         : Integer;
+        HighestScore : Integer;
+        Hundreds     : Integer;
+        Fifties      : Integer;
+        Average      : Decimal(10, 3);
+}
+
+entity bowlingstats {
+    key Player    : String;
+        Wickets : Integer;
+        Economy : Decimal(10, 3);
 }

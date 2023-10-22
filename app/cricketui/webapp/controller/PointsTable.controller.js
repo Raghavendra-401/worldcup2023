@@ -37,7 +37,7 @@ sap.ui.define([
                 if (!this._pDialog) {
                     this._pDialog = Fragment.load({
                         id: this.getView().getId(),
-                        name: "wc.india.cricketui.view.Results",
+                        name: "wc.india.cricketui.fragments.Results",
                         controller: this
                     }).then(function (oDialog) {
                         this.getView().addDependent(oDialog);
@@ -55,6 +55,69 @@ sap.ui.define([
                 var oFilter = new Filter("Opponent", FilterOperator.Contains, sValue);
                 var oBinding = oEvent.getSource().getBinding("items");
                 oBinding.filter([oFilter]);
+            },
+            onPressBattingStats: function (oEvent) {
+                let sTitle = oEvent.getSource().getProperty("title");
+                switch (sTitle) {
+                    case "Most Runs": {
+                        if (!this.mostRunsFragment) {
+                            this.mostRunsFragment = sap.ui.xmlfragment("wc.india.cricketui.fragments.mostruns", this);
+                            this.getView().addDependent(this.mostRunsFragment);
+                        }
+                        this.mostRunsFragment.open();
+                        break;
+                    };
+                    case "Highest Scores": {
+                        if (!this.highestScoreFragment) {
+                            this.highestScoreFragment = sap.ui.xmlfragment("wc.india.cricketui.fragments.highestScore", this);
+                            this.getView().addDependent(this.highestScoreFragment);
+                        }
+                        this.highestScoreFragment.open();
+                        break;
+                    };
+                    case "Most Hundreds": {
+                        if (!this.mostHundredsFragment) {
+                            this.mostHundredsFragment = sap.ui.xmlfragment("wc.india.cricketui.fragments.mostHundreds", this);
+                            this.getView().addDependent(this.mostHundredsFragment);
+                        }
+                        this.mostHundredsFragment.open();
+                        break;
+                    };
+                    case "Most Fifties": {
+                        if (!this.mostFiftiesFragment) {
+                            this.mostFiftiesFragment = sap.ui.xmlfragment("wc.india.cricketui.fragments.mostFifties", this);
+                            this.getView().addDependent(this.mostFiftiesFragment);
+                        }
+                        this.mostFiftiesFragment.open();
+                        break;
+                    }
+                }
+            },
+            onPressBowlingStats: function (oEvent) {
+                let sTitle = oEvent.getSource().getProperty("title");
+                switch (sTitle) {
+                    case "Most Wickets": {
+
+                    };
+                    case "Best Bowling": {
+
+                    };
+                    case "Best Economy": {
+
+                    }
+                }
+            },
+            onCloseHighestScore: function () {
+                this.highestScoreFragment.close();
+            },
+            onCloseMostFifties: function () {
+                this.mostFiftiesFragment.close();
+            },
+            onCloseMostHundreds: function () {
+                this.mostHundredsFragment.close();
+            },
+            onCloseMostRuns: function () {
+                this.mostRunsFragment.close();
             }
         });
     });
