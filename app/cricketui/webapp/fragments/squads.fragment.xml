@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Dialog id="_IDSquadDialog" title="{oPlayersModel>/0/Country_Name}" contentHeight="65%" contentWidth="33%">
+        <content>
+            <List id="_IDSquadList" items="{path:'oPlayersModel>/',
+                                            sorter : {
+                                                path : 'Role',
+                                                group : true
+                                            }}">
+                <items>
+                    <StandardListItem title="{oPlayersModel>Name}"/>
+                </items>
+            </List>
+        </content>
+        <beginButton >
+            <Button text="{i18n>OK}" press="onPressSquadFragment"></Button>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

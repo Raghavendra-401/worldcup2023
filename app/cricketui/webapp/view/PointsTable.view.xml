@@ -29,6 +29,19 @@
                             </uxap:ObjectPageSubSection>
                         </uxap:subSections>
                     </uxap:ObjectPageSection>
+                    <uxap:ObjectPageSection title="{i18n>squads}">
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection >
+                                <uxap:blocks>
+                                    <List id="_IDSquads" items="{/Team}">
+                                        <items>
+                                            <StandardListItem title="{Name}" type="Navigation" press="onPressTeamSquad"/>
+                                        </items>
+                                    </List>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
                 </uxap:sections>
             </uxap:ObjectPageLayout>
         </content>

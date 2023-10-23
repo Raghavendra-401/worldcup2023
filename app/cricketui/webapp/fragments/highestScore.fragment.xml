@@ -9,6 +9,7 @@
                 <ObjectListItem title="{Player}" type="Active" number="{
 				                                                  parts:[{path:'HighestScore'}] }">
                     <ObjectAttribute text="{i18n>TotalRunsScored}{Runs}" />
+                    <ObjectAttribute text="{Country}" />
                 </ObjectListItem>
             </List>
         </content>

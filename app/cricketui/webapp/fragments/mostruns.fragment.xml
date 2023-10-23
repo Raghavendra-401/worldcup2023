@@ -8,7 +8,7 @@
         }}">
                 <ObjectListItem title="{Player}" type="Active" number="{
 				                                                  parts:[{path:'Runs'}] }">
-                    <ObjectAttribute text="{i18n>Hundreds}{Hundreds}" />
+                    <ObjectAttribute text="{Country}" />
                 </ObjectListItem>
             </List>
         </content>
