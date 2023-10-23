@@ -97,7 +97,7 @@ sap.ui.define([
                     }
                 }
             },
-            /** using single fragment for each stat but changing the binding*/
+            /** reusing single fragment for showing different bowling stats (binding is changing) */
             onPressBowlingStats: function (oEvent) {
                 let sTitle = oEvent.getSource().getProperty("title");
                 var oItemTemplate;
@@ -159,6 +159,8 @@ sap.ui.define([
             onCloseMostRuns: function () {
                 this.mostRunsFragment.close();
             },
+            /** not using multiple fragments - single fragment used 
+             
             onCloseBestBowling: function () {
                 this.bestBowlingFragment.close();
             },
@@ -168,6 +170,9 @@ sap.ui.define([
             onCloseBestEconomy: function () {
                 this.bestEconomyFragment.close();
             },
+
+            */
+           /** reusing single fragment for showing bowling stats - close method for fragment */
             onPressTeamSquad: function (oEvent) {
                 var sTeamName = oEvent.getSource().getProperty("title");
                 var aFilter = [];
