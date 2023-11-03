@@ -78,7 +78,8 @@
                     "autoExpandSelect": true,
                     "earlyRequests": true
                 }
-            },"oStatModel":{
+            },
+            "oStatModel": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/stats.json"
             }

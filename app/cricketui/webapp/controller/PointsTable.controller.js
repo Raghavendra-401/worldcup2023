@@ -16,6 +16,15 @@ sap.ui.define([
         return Controller.extend("wc.india.cricketui.controller.PointsTable", {
             onInit: function () {
                 this.resourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+                // let oModel = this.getOwnerComponent().getModel();
+                // oModel.read("/TeamsData",{
+                //     success : (oData) =>{
+
+                //     },
+                //     error : (oError) => {
+
+                //     }
+                // });
             },
             onNavToResultPage: function (oEvent) {
                 var sPath = oEvent.getSource().getBindingContext().sPath.split("'")[1];
@@ -172,7 +181,7 @@ sap.ui.define([
             },
 
             */
-           /** reusing single fragment for showing bowling stats - close method for fragment */
+            /** reusing single fragment for showing bowling stats - close method for fragment */
             onPressTeamSquad: function (oEvent) {
                 var sTeamName = oEvent.getSource().getProperty("title");
                 var aFilter = [];
