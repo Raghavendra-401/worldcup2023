@@ -25,6 +25,21 @@
                     "odataVersion": "2.0"
                 }
             }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "intent1" :{
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "WorldCup2k23",
+                    "action": "display",
+                    "title":"{{appTitle}}",
+                    "subTitle":"",
+                    "icon": ""
+                }
+            }
         }
     },
     "sap.ui": {

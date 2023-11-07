@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Dialog id="_IDMostRuns" contentHeight="45%" contentWidth="45%" title="{i18n>MostRuns}">
+        <content>
+            <List items="{path : '/BattingStats',
+                         sorter: {
+                              path : 'Runs' ,descending : true
+        }}">
+                <ObjectListItem title="{Player}" type="Active" number="{
+				                                                  parts:[{path:'Runs'}] }">
+                    <ObjectAttribute text="{Country}" />
+                </ObjectListItem>
+            </List>
+        </content>
+        <beginButton>
+            <Button text="{i18n>OK}" press="onCloseMostRuns"></Button>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

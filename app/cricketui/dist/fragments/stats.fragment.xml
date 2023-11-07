@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <HBox>
+        <VBox class="classStatsVbox">
+            <List id="_IDBattingStats" items="{oStatModel>/battingStatsHeaderData}" headerText="{i18n>BattingStats}">
+                <items>
+                    <ObjectListItem type="Navigation" title="{oStatModel>Header}" press="onPressBattingStats">
+                        <!-- <ObjectAttribute text="{oStatModel>Name}"></ObjectAttribute> -->
+                    </ObjectListItem>
+                </items>
+            </List>
+        </VBox>
+        <VBox class="classStatsVbox">
+            <List id="_IDBowlingStats" items="{oStatModel>/bowlingStatsHeaderData}" headerText="{i18n>BowlingStats}">
+                <items>
+                    <ObjectListItem title="{oStatModel>Header}" press="onPressBowlingStats" type="Navigation">
+                        <!-- <ObjectAttribute text="{oStatModel>Name}"></ObjectAttribute> -->
+                    </ObjectListItem>
+                </items>
+            </List>
+        </VBox>
+    </HBox>
+</core:FragmentDefinition>

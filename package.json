@@ -7,14 +7,13 @@
   "private": true,
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.11.7",
+    "@sap/approuter": "^14.3.4",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
     "@sap/hana-client": "^2.18.24",
+    "@sap/xsenv": "^4.0.0",
     "@sap/xssec": "^3",
     "express": "^4",
-    "hdb": "^0.19.6",
-    "node": "^20.5.0",
-    "npm": "^10.2.1",
     "passport": "^0"
   },
   "devDependencies": {
@@ -30,7 +29,7 @@
     "watch-cricketui": "cds watch --open cricketui/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy worldcup2k23 --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/worldcup2k23_1.0.0.mtar --retries 1"
   },
   "cds": {
     "requires": {
@@ -54,5 +53,9 @@
     "cov2ap": {
       "plugin": true
     }
+  },
+  "engines": {
+    "node": "^18.17.1",
+    "npm" : "^10.2.3"
   }
 }
