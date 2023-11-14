@@ -28,7 +28,7 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "intent1": {
+                "worldcup2k23": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"

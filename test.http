@@ -22,11 +22,11 @@ PUT http://localhost:4004/odata/v2/world-cup/TeamsData('India')
 Content-Type: application/json
 
 {
-    "MatchesPlayed": 4,
-    "MatchesWon": 4,
+    "MatchesPlayed": 9,
+    "MatchesWon": 9,
     "MatchesLost": 0,
     "MatchesTied": 0,
-    "Points": 8
+    "Points": 18
 }
 
 ###GET - TEAMRESULTS

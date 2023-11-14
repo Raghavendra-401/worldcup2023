@@ -114,9 +114,9 @@ sap.ui.define([
                 if (!this.bowlingStatsFragment) {
                     this.bowlingStatsFragment = sap.ui.xmlfragment("wc.india.cricketui.fragments.bowlingstats", this);
                     this.getView().addDependent(this.bowlingStatsFragment);
-                    sap.ui.getCore().byId("_IDBowlingStatsDialog").setTitle(sTitle);
                 }
                 this.bowlingStatsFragment.open();
+                sap.ui.getCore().byId("_IDBowlingStatsDialog").setTitle(sTitle);
                 switch (sTitle) {
                     case "Most Wickets": {
                         // if (!this.mostWicketsFragment) {

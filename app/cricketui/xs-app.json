@@ -1,10 +1,10 @@
 {
-  "welcomeFile": "/index.html",
+  "welcomeFile": "index.html",
   "authenticationMethod": "route",
   "routes": [
     {
       "source":"^/odata/v2/(.*)$",
-      "target":"$1",
+      "target":"/odata/v2/$1",
       "destination":"worldcup2k23-srv-api",
       "authenticationType":"xsuaa"
     },

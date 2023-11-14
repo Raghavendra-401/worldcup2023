@@ -51,12 +51,12 @@ modules:
           ServiceInstanceName: worldcup2k23-xsuaa-service
           ServiceKeyName: uaa_worldcup2k23-key
           sap.cloud.service: worldcup_2k23_approuter
-        existing_destinations_policy: ignore
+        existing_destinations_policy: update
   build-parameters:
     no-source: true
 - name: worldcup2k23-app-content
   type: com.sap.application.content
-  path: .
+  path: app
   requires:
   - name: worldcup2k23_html_repo_host
     parameters:
@@ -92,11 +92,6 @@ resources:
       init_data:
         instance:
           destinations:
-          - Authentication: NoAuthentication
-            Name: ui5
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://ui5.sap.com
           - Authentication: NoAuthentication
             HTML5.DynamicDestination: true
             HTML5.ForwardAuthToken: true

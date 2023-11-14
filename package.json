@@ -10,6 +10,7 @@
     "@sap/approuter": "^14.3.4",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/hana-client": "^2.18.24",
     "@sap/xsenv": "^4.0.0",
     "@sap/xssec": "^3",
@@ -40,22 +41,28 @@
             "chairman@icc.com": {},
             "president@icc.com": {}
           }
+        },
+        "[production]": {
+          "auth": "xsuaa"
         }
       },
-      "[production]": {
-        "auth": "xsuaa"
+      "db": "hana",
+      "uaa": {
+        "kind": "xsuaa"
       },
-      "db": "hana"
+      "dest": {
+        "kind": "destination",
+        "credentials": {
+          "destination": "worldcup2k23-destination-service"
+        }
+      }
     },
     "hana": {
       "deploy-format": "hdbtable"
-    },
-    "cov2ap": {
-      "plugin": true
     }
   },
   "engines": {
     "node": "^18.17.1",
-    "npm" : "^10.2.3"
+    "npm": "^10.2.3"
   }
 }

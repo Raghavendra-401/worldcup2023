@@ -54,7 +54,7 @@ entity battingstats {
         Average      : Decimal(10, 3);
         Country      : String(20);
         Fours        : Integer;
-        Sixes        : String;
+        Sixes        : Integer;
 }
 
 entity bowlingstats {
