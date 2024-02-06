@@ -39,6 +39,14 @@
         "NODE_ENV": "development",
         "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/worldcup2023\\\",\\\"profileName\\\":\\\"development\\\"}\"}"
       }
+    },
+    {
+      "name": "Clound Foundry instance debugging",
+      "port": 9229,
+      "request": "attach",
+      "type": "node",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/home/vcap/app"
     }
   ]
 }
