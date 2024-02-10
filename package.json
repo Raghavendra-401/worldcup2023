@@ -10,7 +10,7 @@
     "@sap/approuter": "^14.3.4",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.7",
     "@sap/hana-client": "^2.18.24",
     "@sap/xsenv": "^4.0.0",
     "@sap/xssec": "^3",
