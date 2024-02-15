@@ -7,4 +7,5 @@ service WorldCupService {
     entity BowlingStats as projection on my.bowlingstats;
     entity Team         as projection on my.team;
     entity Players      as projection on my.players;
+    function alertNotification() returns String;
 };

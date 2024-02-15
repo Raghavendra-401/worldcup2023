@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.11.7",
+    "@sap_oss/alert-notification-client": "^1.7.0",
     "@sap/approuter": "^14.3.4",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
@@ -14,6 +15,7 @@
     "@sap/hana-client": "^2.18.24",
     "@sap/xsenv": "^4.0.0",
     "@sap/xssec": "^3",
+    "axios": "^1.6.7",
     "express": "^4",
     "passport": "^0"
   },
